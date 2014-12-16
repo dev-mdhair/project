@@ -17,6 +17,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.components.helpers.*',
         'application.modules.user.models.*',
         'application.modules.user.components.*',
 	),
@@ -80,7 +81,14 @@ return array(
             'enableCookieValidation'=>true,
             'enableCsrfValidation'=>true,
         ),
-
+		'geoip' => array(
+				'class' => 'application.extensions.geoip.CGeoIP',
+				// specify filename location for the corresponding database
+				'filename' => 'C:\xampp\htdocs\project\protected\extensions\geoip\GeoLiteCity.dat',
+				// Choose MEMORY_CACHE or STANDARD mode
+				'mode' => 'STANDARD',
+				'default_country' => 'JO'
+		),
         'user'=>array(
             // enable cookie-based authentication
             'class' => 'WebUser',
